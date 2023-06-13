@@ -3,13 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifólio - API CEP</title>
+    <title>PuxaCEP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-<body>
-    <input type="text" id="cep">
-    <button type="button" onclick="showCEP(document.getElementById('cep').value);">Obter informações</button>
-    <p id="resultado">Digite o CEP e clique no botão para exibir as informações</p>
+<body style="background-color: rgb(66, 157, 218)">
+    <div class="container">
+        <div class="row" style="position: relative; top: 50vh; transform: translateY(-50%);">
+            <div class="bg-light rounded-3 shadow-lg col-md-6 d-flex flex-column align-items-center mx-auto p-4 px-5">
+                <h1 class="fw-bold text-muted mb-3">Puxa CEP</h1>
+                <input type="text" id="cep" class="form-control mb-3 shadow-sm" placeholder="Digite o CEP aqui">
+                <button type="button" class="btn btn-primary shadow mb-3" onclick="showCEP(document.getElementById('cep').value);">Obter informações</button>
+                <p id="resultado">Digite o CEP e clique no botão para exibir as informações</p>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalSobre" class="align-center">Sobre esta página</a>
+            </div>
+        </div>
+    </div>
+    <div class="w-100 text-light fixed-bottom text-center" style="background-color: rgb(58, 87, 121)";>
+        2023 - Raphael Ceccato Pauli<b> | </b><a href="http://raphaelceccato.github.io" class="link-info">Visite meu portifólio</a><b> | </b><a href="#" class="link-info">GitHub</a>
+    </div>
 
+    <!-- modal dialog -->
+    <div id="modalSobre" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sobre a página</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Esta página faz parte do meu <a href="http://raphaelceccato.github.io">portifólio</a>.</p>
+                    <p>Consiste em uma demonstração de uso de uma API REST simples (neste caso a do <a href="https://viacep.com.br">ViaCEP</a>), além de também demonstrar o uso de Bootstrap na página.</p>
+                    <p>Uma requisição GET é enviada ao ViaCEP através da função <b>fetch()</b>. A API devolve uma resposta em JSON, que é interpretada como um objeto. Juntamente com ela são usadas Promises e os operadores <i>async/await</i> para processar a resposta de forma assíncrona.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <a href="http://raphaelceccato.github.io" class="btn btn-primary">Ir para o portifólio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
